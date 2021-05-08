@@ -6,7 +6,7 @@
 * [Technologies used](#technologies-used)
 * [Setup](#setup)
 * [Code example](#code-example)
-* [Screenshots for analysis](#screenshots-from-analysis)
+* [Screenshots from analysis](#screenshots-from-analysis)
 * [Contact](#contact)
 
 ## General info
