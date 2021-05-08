@@ -22,7 +22,8 @@
 ## Setup
 
 ## Code example
-**Note**: The code below introduces the data cleansing step and occurs after importing the necessary packages (ex: pandas as pd; numpy as np; seaborn as sns)\
+**Note**: The code below introduces the data cleansing step and occurs after importing the necessary packages (ex: pandas as pd; numpy as np; seaborn as sns)
+
 a_data = pd.read_csv('/content/gdrive/Shared drives/IST 718 Project/a_complete.csv',encoding='ISO-8859-1')\
 a_data\
 a_data['closed_at'] = pd.to_datetime(a_data.closed_at)\
