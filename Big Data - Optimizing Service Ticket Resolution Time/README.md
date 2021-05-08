@@ -21,9 +21,22 @@
 ## Code example
 
 ## Screenshots from analysis
-A visual representation of the number of tickets opened for company A between x and y, by category of ticket and prioritiy type
+Note: the screenshots below represent only a piece of this project, and for company A only
+
+Data Exploration: A visual representation of the number of tickets opened for company A between x and y, by category of ticket and prioritiy type
 Where P4 is least important and P1 is most important
 ![image](https://user-images.githubusercontent.com/75768214/117555973-e6a1d000-b018-11eb-8dcf-bdd1c9c6a21c.png)
+
+Data Modeling: Forecasting
+Predicting the average time a ticket is open
+![image](https://user-images.githubusercontent.com/75768214/117556119-5bc1d500-b01a-11eb-8956-d90c4395be29.png)
+
+Predicting the number of tickets that will be open
+![image](https://user-images.githubusercontent.com/75768214/117556130-75631c80-b01a-11eb-955a-06ee48b30c08.png)
+
+Predicting the cost to service a ticket (measured by technician time & pay)
+![image](https://user-images.githubusercontent.com/75768214/117556151-96c40880-b01a-11eb-984a-3d0c32c57d68.png)
+
 
 ## Contact
 Created by [@AureliaArnett](https://twitter.com/AureliaArnett) --> Let's connect!
