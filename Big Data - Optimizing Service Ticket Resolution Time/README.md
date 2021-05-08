@@ -21,7 +21,8 @@
 ## Code example
 
 ## Screenshots from analysis
-Company A:
+A visual representation of the number of tickets opened for company A between x and y, by category of ticket and prioritiy type
+Where P4 is least important and P1 is most important
 ![image](https://user-images.githubusercontent.com/75768214/117555973-e6a1d000-b018-11eb-8dcf-bdd1c9c6a21c.png)
 
 ## Contact
