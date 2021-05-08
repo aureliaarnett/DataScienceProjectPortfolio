@@ -22,8 +22,7 @@
 ## Setup
 
 ## Code example
-Note: The code below introduces the data cleansing step and occurs after importing the necessary packages (ex: pandas as pd; numpy as np; seaborn as sns)
-
+**Note**: The code below introduces the data cleansing step and occurs after importing the necessary packages (ex: pandas as pd; numpy as np; seaborn as sns)\
 a_data = pd.read_csv('/content/gdrive/Shared drives/IST 718 Project/a_complete.csv',encoding='ISO-8859-1')\
 a_data\
 a_data['closed_at'] = pd.to_datetime(a_data.closed_at)\
@@ -48,15 +47,14 @@ print(a_data_tas.info()) #reduce to 37 columns\
 ...
 
 ## Screenshots from analysis
-Note: the screenshots below represent only a piece of this project, and for company A only
+**Note**: the screenshots below represent only a piece of this project, and for company A only
 
-Data Exploration:
-
+**Data Exploration**:\
 A visual representation of the number of tickets opened for company A between December 2019 and December 2020, by category of ticket and prioritiy type
 Where P4 is least important and P1 is most important
 ![image](https://user-images.githubusercontent.com/75768214/117555973-e6a1d000-b018-11eb-8dcf-bdd1c9c6a21c.png)
 
-Data Modeling: Forecasting (prophet model)\
+**Data Modeling**: Forecasting (prophet model)\
 Predicting the average time a ticket is open
 ![image](https://user-images.githubusercontent.com/75768214/117556119-5bc1d500-b01a-11eb-8956-d90c4395be29.png)
 
@@ -66,7 +64,7 @@ Predicting the number of tickets that will be open
 Predicting the cost to service a ticket (measured by technician time & pay)
 ![image](https://user-images.githubusercontent.com/75768214/117556151-96c40880-b01a-11eb-984a-3d0c32c57d68.png)
 
-Data Modeling: Timeseries\
+**Data Modeling**: Timeseries\
 Predicting the count of tickets from the category 'software' that will be opened in the next year
 ![image](https://user-images.githubusercontent.com/75768214/117556185-e6a2cf80-b01a-11eb-8dc2-48b805cf93f7.png)
 
