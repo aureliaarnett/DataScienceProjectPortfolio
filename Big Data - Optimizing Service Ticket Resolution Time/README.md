@@ -21,8 +21,8 @@
 ## Code example
 
 ## Screenshots from analysis
-![image](https://user-images.githubusercontent.com/75768214/117555917-38962600-b018-11eb-9012-1650ccb9f689.png)
-
+Company A:
+![image](https://user-images.githubusercontent.com/75768214/117555973-e6a1d000-b018-11eb-8dcf-bdd1c9c6a21c.png)
 
 ## Contact
 Created by [@AureliaArnett](https://twitter.com/AureliaArnett) --> Let's connect!
