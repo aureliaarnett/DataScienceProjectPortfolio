@@ -1,6 +1,4 @@
 # Aurelia Arnett
-# IST 652
-# Homework assignment #1: Structured Data
 # Purpose: Write a program that will read in the donor data & structure the data with lines representing one type of unity (one donor)
 # Purpose cont: Your program will represent the data as Python data structures (a list of dictionaries, combination of lists, NumPy arrays, a pandas dataframe)
 # Objective: Data exploration & cleaning the data (see line 119 below for assignment questions)
