@@ -1,5 +1,4 @@
 # Aurelia Arnett
-# Lab 6 - Zip Codes
 # Objective: Demonstrate ability to develop models for forecasting average median housing value using zip codes.
 # Case: Can we predict which three zip codes provide the best investment opportunity for the Syracuse Real Estate Invvestment Trust
 
