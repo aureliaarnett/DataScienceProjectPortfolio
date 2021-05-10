@@ -9,12 +9,15 @@
 * [Contact](#contact)
 
 ## General info
-> General
+> This project processes data from the aquisition of 1 company into another by consolidating data from 2 data warehouses into 1 and standardizing the way data is processed and labelled.
+> Company 1 'Fudgemart' is a fictitious online retailer, similar to Amazon.com or Walmart.com. The database consists of customers, products and vendors, and has familiar business processes you would find in any online retailer.
+> Company 2 'Fudgeflix'  is a fictitious online DVD by mail and video on demand service, similar to HULU, Netflix, or Disney+. The database for Fudgeflix is called Fudgeflix_v3 and contains concepts such as accounts, subscriptions and video titles as well as other things associated with an online video streaming service. 
+> Data anlaysis
 
 ## Technologies used
 * SQL Server
 * Visual Studios
-* PowerBI
+* Microsoft Power BI
 
 ## Methods used
 * SQL Querying
@@ -36,7 +39,7 @@ See file '4-ROLAP-FudgePopularity.sql'
 **Star schema (ROLAP):** Star schema consists of the consolidation of Fudgeflix into Fudgemart, looking at the product popularity based on customer reviews\
 ![image](https://user-images.githubusercontent.com/75768214/117604779-1af5b900-b10b-11eb-88c3-4e9f4fad7093.png)
 
-**ETL:** See file '5-ETL-FudgePopularity.docx' for full process outlining building one data warehouse and extracting data from the 2 companies\
+**ETL Implementation:** See file '5-ETL-FudgePopularity.docx' for full process outlining building one data warehouse and extracting data from the 2 companies\
 Control flow for Fudgemart data extraction:\
 ![image](https://user-images.githubusercontent.com/75768214/117605730-47123980-b10d-11eb-8bc1-229f9b5bbed3.png)
 
