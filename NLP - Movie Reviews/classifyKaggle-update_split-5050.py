@@ -1,4 +1,3 @@
-# IST 664 - Final Project
 # Aurelia Arnett & Teja Sanaka
 # Updating Train/Test split to 50/50
 # Applying new change to the bag of words feature sets
