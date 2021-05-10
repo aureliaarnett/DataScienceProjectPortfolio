@@ -1,4 +1,4 @@
-# Data Science Project Portfolio
+# Aurelia's Data Science Project Portfolio
 
 ## Table of contents
 * [General info](#general-info)
