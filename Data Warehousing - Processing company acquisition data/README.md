@@ -43,11 +43,12 @@ Control flow for Fudgemart data extraction:\
 Control flow for Fudgemart data load:\
 ![image](https://user-images.githubusercontent.com/75768214/117605649-15996e00-b10d-11eb-9ef3-351924199f5d.png)
 
-**MOLAP:**
-![image](https://user-images.githubusercontent.com/75768214/117606036-e6373100-b10d-11eb-9477-9174563cfdf4.png)
+**MOLAP:**\
+![image](https://user-images.githubusercontent.com/75768214/117606183-2f878080-b10e-11eb-994b-36b5b7a7b96e.png)
 
 **BI:** Final output: most popular products & categories (incl. genres for TV shows & movies)\
-![image](https://user-images.githubusercontent.com/75768214/117605935-aff9b180-b10d-11eb-9880-3afd59dbac19.png)
+![image](https://user-images.githubusercontent.com/75768214/117605935-aff9b180-b10d-11eb-9880-3afd59dbac19.png)\
+\
 ![image](https://user-images.githubusercontent.com/75768214/117605941-b38d3880-b10d-11eb-97c3-28404b770a04.png)
 
 ## Contact
