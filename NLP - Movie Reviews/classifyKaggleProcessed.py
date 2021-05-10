@@ -1,4 +1,3 @@
-# IST 664 - Final Project
 # Aurelia Arnett & Teja Sanaka
 # Processed Data File
 
