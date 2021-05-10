@@ -1,5 +1,4 @@
 # Aurelia Arnett
-# Lab 3 - Coaches
 # Objective: Demonstrate ability to combine datasets and produce meaningful analysis. The goal is to provide more than just data but with insights, understanding, and wisdom
 # Case: To recommend the best salary for the next football coach
 
