@@ -1,4 +1,4 @@
-# DataSciencePortfolio
+# Data Science Project Portfolio
 
 ## Table of contents
 * [General info](#general-info)
