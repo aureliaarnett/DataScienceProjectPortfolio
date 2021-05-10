@@ -9,9 +9,9 @@
 * [Contact](#contact)
 
 ## General info
-> This project processes data from the aquisition of 1 company into another by consolidating data from 2 data warehouses into 1 and standardizing the way data is processed and labelled.
-> Company 1 'Fudgemart' is a fictitious online retailer, similar to Amazon.com or Walmart.com. The database consists of customers, products and vendors, and has familiar business processes you would find in any online retailer.
-> Company 2 'Fudgeflix'  is a fictitious online DVD by mail and video on demand service, similar to HULU, Netflix, or Disney+. The database for Fudgeflix is called Fudgeflix_v3 and contains concepts such as accounts, subscriptions and video titles as well as other things associated with an online video streaming service. 
+> This project processes data from the aquisition of 1 company into another by consolidating data from 2 data warehouses into 1 and standardizing the way data is processed and labelled.\
+> Company 1 'Fudgemart' is a fictitious online retailer, similar to Amazon.com or Walmart.com. The database consists of customers, products and vendors, and has familiar business processes you would find in any online retailer.\
+> Company 2 'Fudgeflix'  is a fictitious online DVD by mail and video on demand service, similar to HULU, Netflix, or Disney+. The database for Fudgeflix is called Fudgeflix_v3 and contains concepts such as accounts, subscriptions and video titles as well as other things associated with an online video streaming service.\
 > Data anlaysis
 
 ## Technologies used
