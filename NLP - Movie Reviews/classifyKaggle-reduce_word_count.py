@@ -1,4 +1,3 @@
-# IST 664 - Final Project
 # Aurelia Arnett & Teja Sanaka
 # Reducing the word count from 1500 to 1000
 # Applying new change to the bag of words feature sets
