@@ -1,5 +1,3 @@
-# Aurelia Arnett
-# Final Project - Question 2, part 1
 # Airbnb Dataset - Untructured
 # Purpose: To read in the Kaggle Dataset, process the data into dictionaries, and determine amenities included wtih high ratings
 
