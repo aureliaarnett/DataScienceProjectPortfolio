@@ -19,7 +19,7 @@
 * Microsoft Power BI
 
 ## Methods used
-* SQL Querying
+* SQL querying
 * ROLAP (SQL SERVER)
 * ROLAP (Visual Studios)
 * ETL (Visual Studios)
