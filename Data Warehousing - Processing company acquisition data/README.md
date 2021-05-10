@@ -25,7 +25,7 @@
 
 
 ## Screenshots
-**Company 1:** Fudgelix streaming services schema
+**Company 1:** Fudgelix streaming services schema\
 ![image](https://user-images.githubusercontent.com/75768214/117604587-a7ec4280-b10a-11eb-9b46-ad7eb846cb21.png)
 
 
