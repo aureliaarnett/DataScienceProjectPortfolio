@@ -1,6 +1,5 @@
 # Aurelia Arnett
-# IST 664 - NLP
-# Homework Assignment 1: Comparing Corpora with Corpus Statistics
+# Corpus Statistics
 # Purpose: To run word frequencies, bigram grequencies, and mutual information scores on the documents;
 # Then select items from these lists to make a comparison between the two documents
 
