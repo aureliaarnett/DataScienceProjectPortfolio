@@ -1,4 +1,3 @@
-# IST 664 - Final Project
 # Aurelia Arnett & Teja Sanaka
 # Unrocessed Data File -- Experiment 1; comparing the accuracy of the unprocessed data to the processed data
 
