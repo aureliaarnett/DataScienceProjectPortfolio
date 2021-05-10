@@ -1,0 +1,11 @@
+R code associated with Caravan data:
+https://github.com/jayanttikmani/cross-sellingCaravanInsuranceUsingDataMining/blob/master/CaravanInsurance-DataMining.ipynb
+https://github.com/jayanttikmani/cross-sellingCaravanInsuranceUsingDataMining
+https://rstudio-pubs-static.s3.amazonaws.com/128864_a2ffe23d12914489957695d6226d77a6.html
+https://github.com/jonrossi/caravan-insurance/blob/master/caravan-insurance.ipynb
+https://github.com/SaurabhManjrekar44/InsuranceUseCase/blob/master/Insurance_Prediction.ipynb
+https://github.com/christine62/caravan-insurance-customer-identification/blob/master/caravan.ipynb
+https://github.com/christine62/caravan-insurance-customer-identification/blob/master/Caravan%20Insurance%20Customer%20Identification.pptx
+
+Research paper:
+https://kundoc.com/pdf-caravan-insurance-customer-profile-modeling-with-r-.html
