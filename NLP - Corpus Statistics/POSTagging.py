@@ -1,5 +1,4 @@
 # Aurelia Arnett
-# Lab 4 - Running a POS Tagger
 
 # Choose a corpus: Gutenbook
 import nltk
