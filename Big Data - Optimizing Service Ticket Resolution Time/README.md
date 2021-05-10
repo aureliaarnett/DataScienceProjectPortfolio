@@ -4,7 +4,6 @@
 * [General info](#general-info)
 * [Technologies used](#technologies-used)
 * [Python methods used](#python-methods-used)
-* [Setup and file names](#setup-and-file-names)
 * [Code example](#code-example)
 * [Screenshots from analysis](#screenshots-from-analysis)
 * [Contact](#contact)
@@ -20,11 +19,10 @@
 * Scripting for data import, cleansing, and pre-processing
 * Natural language processing
 * Scripting for data vis (seaborn)
+* Classification
 * Prophet for forecasting
 * Time series analysis
 * HTML web objects
-
-## Setup and file names
 
 ## Code example
 **Note**: The code below introduces the data cleansing step and occurs after importing the necessary packages (ex: pandas as pd; numpy as np; seaborn as sns)
