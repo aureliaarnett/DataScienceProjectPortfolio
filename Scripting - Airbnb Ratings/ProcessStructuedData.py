@@ -1,5 +1,3 @@
-# Aurelia Arnett
-# Final Project - Question 1
 # Airbnb Dataset - Structured
 # Purpose: To read in the Kaggle Dataset, process the data into dictionaries, and determine ratings by country
 # Then find the countries that have the highest & lowest scores, and uncover what factors are associated with high vs low scores
