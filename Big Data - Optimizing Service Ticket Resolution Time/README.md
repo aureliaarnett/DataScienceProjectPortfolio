@@ -3,23 +3,28 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies used](#technologies-used)
-* [Methods used](#methods-used)
-* [File names](#file-names-&-their-meanings)
-* [Setup](#setup)
+* [Python methods used](#python-methods-used)
+* [Setup and file names](#setup-and-file-names)
 * [Code example](#code-example)
 * [Screenshots from analysis](#screenshots-from-analysis)
 * [Contact](#contact)
 
 ## General info
-> This project explores ServiceNow ticket data from 2 different companies, company A and company J, to better understand the environment for each company (number of technicians, skillsets, average ticket intakes), evaluate trends (such as average amount of time a ticket is open, different categories of ticket types, amount of staff available, qualified to work ticket), evaluate variable significance, and offer recomendations per company to help increase service efficiencies and minimizr expenses.
+> This project explores ServiceNow ticket data from 2 different companies, company A and company J, to better understand the environment for each company (number of technicians, skillsets, average ticket intakes), evaluate trends (such as average amount of time a ticket is open, different categories of ticket types, amount of staff available, qualified to work ticket), evaluate variable significance, and offer recommendations per company to help increase service efficiencies and minimize expenses.
 
 ## Technologies used
+* Excel (data extraction)
+* Jupyter Notebook (python)
 
-## Methods used
+## Python methods used
+* Scripting for data import, cleansing, and pre-processing
+* Natural language processing
+* Scripting for data vis (seaborn)
+* Prophet for forecasting
+* Time series analysis
+* HTML web objects
 
-## File names & their meanings
-
-## Setup
+## Setup and file names
 
 ## Code example
 **Note**: The code below introduces the data cleansing step and occurs after importing the necessary packages (ex: pandas as pd; numpy as np; seaborn as sns)
