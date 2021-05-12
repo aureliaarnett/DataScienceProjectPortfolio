@@ -28,21 +28,21 @@
 ## Code example
 **NLP**: Evaluating Airbnb amenities included for listings with ratings over 90% (unstructured data)\
 import nltk\
-'#' Turn the message into tokens\
-# NOTE: Used the code $ python -c "import nltk; nltk.download('punkt')" in a cmd prompt to install the nltk package\
-
-# Over 90% score\
-# Tokenize amenities for listings that have an overall rating over 90%\
-# Create a list that contains the amenities/listing\
-
+#Turn the message into tokens\
+#NOTE: Used the code $ python -c "import nltk; nltk.download('punkt')" in a cmd prompt to install the nltk package\
+\
+#Over 90% score\
+#Tokenize amenities for listings that have an overall rating over 90%\
+#Create a list that contains the amenities/listing\
+\
 amenitylist90 = [airbnb['Amenities'].replace(" ", "") for airbnb in airbnbList if int(airbnb['OverallRating']) >= 90]\
 print('Total number of listings with amenities:', len(amenitylist90))\
 alltok_90 = [tok for amenity in amenitylist90 for tok in nltk.word_tokenize(amenity)]\
 alltok_90_2 = [tok.lower() for tok in alltok_90]\
-
+\
 amenityFD = nltk.FreqDist(alltok_90_2)\
 top_words = amenityFD.most_common(32)\
-
+\
 amenityFreqList = []\
 #print('Amenity, Frequency, % Occurrence')\
 for word, freq in top_words:\
@@ -52,9 +52,9 @@ for word, freq in top_words:\
    amenitydict['Frequency'] = freq\
    amenitydict['Occurrence'] = occ\\\
    amenityFreqList.append((word,freq,occ))\
-#   print(word, freq, occ)\
-
-
+#print(word, freq, occ)\
+\
+\
 import pandas as pd\
 amenityFreqDF = pd.DataFrame(amenityFreqList, columns=['Amenity', 'Frequency', '% Occurrence'])\
 amenityFreqDF = amenityFreqDF.drop([0, 16])\
