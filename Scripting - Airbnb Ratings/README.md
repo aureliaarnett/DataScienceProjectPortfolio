@@ -28,7 +28,7 @@
 ## Code example
 **NLP**: Evaluating Airbnb amenities included for listings with ratings over 90% (unstructured data)\
 import nltk\
-# Turn the message into tokens\
+'#' Turn the message into tokens\
 # NOTE: Used the code $ python -c "import nltk; nltk.download('punkt')" in a cmd prompt to install the nltk package\
 
 # Over 90% score\
