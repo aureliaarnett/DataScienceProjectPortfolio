@@ -64,11 +64,11 @@ amenityFreqDF.to_csv('2-AmenitiesOver90.csv')\
 
 ## Screenshots
 **Most common amenities output**:\
-Summary results for top amenities: Airbnb’s ranked over 90% offer amenities on the left and Airbnb’s ranked under 50% offer amenities on the right
+Summary results for top amenities: Airbnb’s ranked over 90% offer amenities on the left and Airbnb’s ranked under 50% offer amenities on the right\
 ![image](https://user-images.githubusercontent.com/75768214/117924159-27fcde80-b2aa-11eb-9b6b-584e82de0506.png)
 
 **Top Twitter hashtag results with a travel theme**\
-Summarizy results for top hashtags, collection terms reading from left to right: #Airbnb, #Vrbo, #adventure, #travel, #wanderlust, and #destination
+Frequency results for top hashtags, collection terms reading from left to right: #Airbnb, #Vrbo, #adventure, #travel, #wanderlust, and #destination\
 ![image](https://user-images.githubusercontent.com/75768214/117924318-65616c00-b2aa-11eb-9f80-f2b3dda991b5.png)
 
 
