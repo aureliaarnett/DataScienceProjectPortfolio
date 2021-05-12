@@ -54,7 +54,6 @@ for word, freq in top_words:\
    amenityFreqList.append((word,freq,occ))\
 #print(word, freq, occ)\
 \
-\
 import pandas as pd\
 amenityFreqDF = pd.DataFrame(amenityFreqList, columns=['Amenity', 'Frequency', '% Occurrence'])\
 amenityFreqDF = amenityFreqDF.drop([0, 16])\
