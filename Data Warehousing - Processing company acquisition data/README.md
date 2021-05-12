@@ -1,4 +1,4 @@
-# Data Warehousing - Processing company acquisition data
+# Normalizing company acquisition data using data warehousing
 
 ## Table of contents
 * [General info](#general-info)
