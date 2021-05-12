@@ -4,7 +4,7 @@
 * [General info](#general-info)
 * [Technologies used](#technologies-used)
 * [Methods used](#methods-used)
-* [Code example](#Code-example-(ROLAP-in-SQL-SERVER))
+* [Code example](#code-example)
 * [Screenshots](#screenshots)
 * [Contact](#contact)
 
@@ -25,8 +25,8 @@
 * ETL (Visual Studios)
 * Data visualization
 
-## Code example (ROLAP in SQL SERVER)
-See file '4-ROLAP-FudgePopularity.sql'
+## Code example
+For code regarding the ROLAP in SQL SERVER, see file '4-ROLAP-FudgePopularity.sql'
 
 ## Screenshots
 **Company 1:** Fudgelix streaming services schema\
