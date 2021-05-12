@@ -4,7 +4,7 @@
 * [General info](#general-info)
 * [Technologies used](#technologies-used)
 * [Methods used](#methods-used)
-* [Code example](#code-example-(ROLAP-in-SQL-SERVER))
+* [Code example](#Code-example-(ROLAP-in-SQL-SERVER))
 * [Screenshots](#screenshots)
 * [Contact](#contact)
 
