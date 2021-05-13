@@ -3,7 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies used](#technologies-used)
-* [Python methods used](#python-methods-used)
+* [R methods used](#R-methods-used)
 * [Code example](#code-example)
 * [Screenshots from analysis](#screenshots-from-analysis)
 * [Contact](#contact)
@@ -14,7 +14,7 @@
 ## Technologies used
 * R
 
-## Python methods used
+## R methods used
 * Format the .csv data into a corpus (collection of written texts)
 * Convert corpus text into a data term matrix in R
 * Evaluate distance measures between 2 Hamilton docs and 2 Madison docs to uncover text similarities (Euclidean and Cosine similarity calculations)
