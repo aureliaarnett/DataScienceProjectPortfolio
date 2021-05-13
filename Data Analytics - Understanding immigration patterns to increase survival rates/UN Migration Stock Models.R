@@ -1,7 +1,7 @@
 # Modeling for UN Migrant Stock Dataset
 
 ## Set WD ##
-setwd("C:\\Users\\aua\\Documents\\IST707 Final Project")
+setwd("C:...")
 
 ## Clean the Data ## 
 library(readxl)
