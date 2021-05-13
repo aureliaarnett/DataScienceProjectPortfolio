@@ -1,0 +1,782 @@
+---
+title: "Project"
+author: "Teresa Cameron"
+date: "12/2/2019"
+output: html_document
+---
+
+```{r}
+library(readxl)
+# Read in file
+MissingMigrants <- read_xlsx("~/Desktop/MissingMigrants-Global.xlsx", col_names = TRUE)
+# Convert to data frame
+MissingMigrantsDF <- as.data.frame(MissingMigrants)
+# Remove web id column
+MissingMigrantsDF <- MissingMigrantsDF[,-1]
+# Remove first row
+MissingMigrantsDF <- MissingMigrantsDF[-1,]
+# Remove excess coloumns
+MissingMigrantsDF <- MissingMigrantsDF[,-13:-19]
+```
+
+```{r}
+# Fix variable types
+#str(MissingMigrantsDF)
+MissingMigrantsDF[is.na(MissingMigrantsDF)] <- 0
+# Fix column names
+NamesOfColumns <- c("Region_of_Incident", "Reported_Date", "Reported_Year", "Reported_Month", "Number_Dead", "Min_Est_Num_Missing",
+                    "Total_Dead_Missing", "Num_of_Survivors", "Num_of_Females", "Num_of_Males", "Num_of_Children","Cause_of_Death")
+MissingMigrantsDF <- setNames(MissingMigrantsDF, NamesOfColumns)
+MissingMigrantsDF$Reported_Month <- as.factor(MissingMigrantsDF$Reported_Month)
+MissingMigrantsDF$Region_of_Incident <- as.factor(MissingMigrantsDF$Region_of_Incident)
+MissingMigrantsDF[,5] <- as.numeric(MissingMigrantsDF[,5])
+MissingMigrantsDF[,6] <- as.numeric(MissingMigrantsDF[,6])
+MissingMigrantsDF[,7] <- as.numeric(MissingMigrantsDF[,7])
+MissingMigrantsDF[,8] <- as.numeric(MissingMigrantsDF[,8])
+MissingMigrantsDF[,9] <- as.numeric(MissingMigrantsDF[,9])
+MissingMigrantsDF[,10] <- as.numeric(MissingMigrantsDF[,10])
+MissingMigrantsDF[,11] <- as.numeric(MissingMigrantsDF[,11])
+MissingMigrantsDF[,12] <- tolower(MissingMigrantsDF[,12])
+#table(MissingMigrantsDF$Cause_of_Death)
+```
+
+```{r}
+# Assign categories to cause of death
+MissingMigrantsDF$CoD_Category <- 0
+```
+
+```{r}
+# Assign causes of death to categories
+library(dplyr)
+library(data.table)
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "unknown"] <- "unknown")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "mixed"] <- "unknown")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "exhaustion"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "accident"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "crushed"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "plane"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "exposure"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "rockslide"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "weather"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "skeletal"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "mummified"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "hyperthermia"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "hypothermia"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "envenomation"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "electrocution"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "fire"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "fall"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "gassed"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "suffocation"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "sickness"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "coronary"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "stroke"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "organ"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "pneumonia"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "post-partum"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "hypoglycemia"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "burned"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "burns"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "asphyxiation"] <- "accident")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "vehicle"] <- "vehicle")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "cancer"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "cardiac"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "exhaustion"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "illness"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "edema"] <- "illness")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "harsh"] <- "environment")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "apache"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "violence"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "injuries"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "abuse"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "killed"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "hanging"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "sexual"] <- "sexual_abuse")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "rape"] <- "sexual_abuse")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "vehicle"] <- "vehicle")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "car"] <- "vehicle")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "truck"] <- "vehicle")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "train"] <- "train")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "railway"] <- "train")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "drowning"] <- "drowning")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "murdered"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "stabbed"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "shot"] <- "violence")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "starvation"] <- "dehydration_starvation")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "dehydradtion"] <- "dehydration_starvation")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "dehydration"] <- "dehydration_starvation")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "malnutrition"] <- "dehydration_starvation")
+MissingMigrantsDF <- within(MissingMigrantsDF, CoD_Category[Cause_of_Death %like% "suicide"] <- "suicide")
+
+```
+
+```{r}
+table(MissingMigrantsDF$CoD_Category)
+```
+
+
+```{r}
+# Turn character data to factor
+MissingMigrantsDF <- MissingMigrantsDF %>% 
+  mutate_if(is.character, funs(as.factor))
+str(MissingMigrantsDF)
+```
+
+Association Rule Mining
+
+```{r}
+# Create data frame for ARM
+MissingMigrantsARM <- as.data.frame(MissingMigrantsDF) %>% 
+  select(-Reported_Date) %>% 
+  mutate_if(is.character, funs(as.factor))
+# Remove columns as other column is the sum of these two columns
+MissingMigrantsARM <- MissingMigrantsARM[,-4:-5]
+# Take out column of cause of dealth not categorized
+MissingMigrantsARM <- MissingMigrantsARM[,-9]
+```
+
+```{r}
+# Discretize data 
+MissingMigrantsARM$Total_Dead_Missing <- 
+  cut(MissingMigrantsARM$Total_Dead_Missing, breaks=c(-Inf, 0, 5, 10, 50, Inf), 
+      labels=c("Zero", "Low", "Med","High", "Very_High"))
+MissingMigrantsARM$Num_of_Survivors <- 
+  cut(MissingMigrantsARM$Num_of_Survivors, breaks=c(-Inf, 0, 5, 10, 50, Inf), 
+      labels=c("Zero", "Low", "Med","High", "Very_High"))
+MissingMigrantsARM$Num_of_Females <- 
+  cut(MissingMigrantsARM$Num_of_Females, breaks=c(-Inf, 0, 5, 10, 50, Inf), 
+      labels=c("Zero", "Low", "Med","High", "Very_High"))
+MissingMigrantsARM$Num_of_Males <- 
+  cut(MissingMigrantsARM$Num_of_Males, breaks=c(-Inf, 0, 5, 10, 50, Inf), 
+      labels=c("Zero", "Low", "Med","High", "Very_High"))
+MissingMigrantsARM$Num_of_Children <- 
+  cut(MissingMigrantsARM$Num_of_Children, breaks=c(-Inf, 0, 5, 10, 50, Inf), 
+      labels=c("Zero", "Low", "Med","High", "Very_High"))
+#str(MissingMigrantsARM)
+```
+
+```{r}
+MissingMigrantsARM1 <- subset.data.frame(MissingMigrantsARM, Total_Dead_Missing == "Very_High")
+```
+
+```{r}
+# Generate rules 
+library(arules)
+Highest_Totals <- apriori(data = MissingMigrantsARM1, parameter = list(supp=0.025, conf=1.0, minlen=4),
+                        appearance = list(default="lhs", rhs="Total_Dead_Missing=Very_High"),
+                        control = list(verbose=F))
+Highest_Totals <- sort(Highest_Totals, decreasing = TRUE, by="confidence")
+inspect(Highest_Totals[1:10])
+```
+
+Naive Bayes
+
+Testing with all data
+
+```{r}
+MissingMigrantsNB <- MissingMigrantsARM
+## Create a test and train set from data to test model accuracy
+every4_rows<-seq(2,nrow(MissingMigrantsNB),3)
+MM_NB_Test=MissingMigrantsNB[every4_rows, ]
+MM_NB_Train=MissingMigrantsNB[-every4_rows, ]
+## View the created Test and Train sets
+nrow(MM_NB_Test)
+nrow(MM_NB_Train)
+```
+
+```{r}
+# Store labels seperately and remove from testing data
+MM_NB_Test_Lables <- MM_NB_Test$CoD_Category
+MM_NB_Train_Lables <- MM_NB_Train$CoD_Category
+MM_NB_Test <- MM_NB_Test[,-9]
+```
+
+
+```{r}
+library(e1071)
+# Train Naive Baynes
+mm_classifier <- naiveBayes(CoD_Category ~., data=MM_NB_Train)
+# Predict on testing data
+MM_NB_pred <- predict(mm_classifier, MM_NB_Test)
+```
+
+```{r}
+library(caret)
+confusionMatrix(MM_NB_pred, MM_NB_Test_Lables)
+```
+
+Testing with Data where Total Dead and Missing is equal to Very High
+
+```{r}
+MissingMigrantsNB <- MissingMigrantsARM1
+## Create a test and train set from data to test model accuracy
+every4_rows<-seq(2,nrow(MissingMigrantsNB),3)
+MM_NB_Test=MissingMigrantsNB[every4_rows, ]
+MM_NB_Train=MissingMigrantsNB[-every4_rows, ]
+## View the created Test and Train sets
+nrow(MM_NB_Test)
+nrow(MM_NB_Train)
+```
+
+```{r}
+# Store labels seperately and remove from testing data
+MM_NB_Test_Lables <- MM_NB_Test$CoD_Category
+MM_NB_Train_Lables <- MM_NB_Train$CoD_Category
+MM_NB_Test <- MM_NB_Test[,-9]
+```
+
+
+```{r}
+# Train Naive Baynes
+mm_classifier <- naiveBayes(CoD_Category ~., data=MM_NB_Train)
+# Predict on testing data
+MM_NB_pred <- predict(mm_classifier, MM_NB_Test)
+```
+
+```{r}
+library(caret)
+confusionMatrix(MM_NB_pred, MM_NB_Test_Lables)
+```
+
+Testing with Data where Total Dead and Missing is equal to High
+
+```{r}
+MissingMigrantsNB <- subset.data.frame(MissingMigrantsARM, Total_Dead_Missing == "High")
+```
+
+```{r}
+## Create a test and train set from data to test model accuracy
+every4_rows<-seq(2,nrow(MissingMigrantsNB),3)
+MM_NB_Test=MissingMigrantsNB[every4_rows, ]
+MM_NB_Train=MissingMigrantsNB[-every4_rows, ]
+## View the created Test and Train sets
+nrow(MM_NB_Test)
+nrow(MM_NB_Train)
+```
+
+```{r}
+# Store labels seperately and remove from testing data
+MM_NB_Test_Lables <- MM_NB_Test$CoD_Category
+MM_NB_Train_Lables <- MM_NB_Train$CoD_Category
+MM_NB_Test <- MM_NB_Test[,-9]
+```
+
+
+```{r}
+library(e1071)
+# Train Naive Baynes
+mm_classifier <- naiveBayes(CoD_Category ~., data=MM_NB_Train)
+# Predict on testing data
+MM_NB_pred <- predict(mm_classifier, MM_NB_Test)
+```
+
+```{r}
+library(caret)
+confusionMatrix(MM_NB_pred, MM_NB_Test_Lables)
+```
+
+Testing with Data where Total Dead and Missing is equal to Medium
+
+```{r}
+MissingMigrantsNB <- subset.data.frame(MissingMigrantsARM, Total_Dead_Missing == "Med")
+```
+
+```{r}
+## Create a test and train set from data to test model accuracy
+every4_rows<-seq(2,nrow(MissingMigrantsNB),3)
+MM_NB_Test=MissingMigrantsNB[every4_rows, ]
+MM_NB_Train=MissingMigrantsNB[-every4_rows, ]
+## View the created Test and Train sets
+nrow(MM_NB_Test)
+nrow(MM_NB_Train)
+```
+
+```{r}
+# Store labels seperately and remove from testing data
+MM_NB_Test_Lables <- MM_NB_Test$CoD_Category
+MM_NB_Train_Lables <- MM_NB_Train$CoD_Category
+MM_NB_Test <- MM_NB_Test[,-9]
+```
+
+
+```{r}
+library(e1071)
+# Train Naive Baynes
+mm_classifier <- naiveBayes(CoD_Category ~., data=MM_NB_Train)
+# Predict on testing data
+MM_NB_pred <- predict(mm_classifier, MM_NB_Test)
+```
+
+```{r}
+library(caret)
+confusionMatrix(MM_NB_pred, MM_NB_Test_Lables)
+```
+
+Testing with Data where Total Dead and Missing is equal to Low
+
+```{r}
+MissingMigrantsNB <- subset.data.frame(MissingMigrantsARM, Total_Dead_Missing == "Low")
+```
+
+```{r}
+## Create a test and train set from data to test model accuracy
+every4_rows<-seq(2,nrow(MissingMigrantsNB),3)
+MM_NB_Test=MissingMigrantsNB[every4_rows, ]
+MM_NB_Train=MissingMigrantsNB[-every4_rows, ]
+## View the created Test and Train sets
+nrow(MM_NB_Test)
+nrow(MM_NB_Train)
+```
+
+```{r}
+# Store labels seperately and remove from testing data
+MM_NB_Test_Lables <- MM_NB_Test$CoD_Category
+MM_NB_Train_Lables <- MM_NB_Train$CoD_Category
+MM_NB_Test <- MM_NB_Test[,-9]
+```
+
+
+```{r}
+library(e1071)
+# Train Naive Baynes
+mm_classifier <- naiveBayes(CoD_Category ~., data=MM_NB_Train)
+# Predict on testing data
+MM_NB_pred <- predict(mm_classifier, MM_NB_Test)
+```
+
+```{r}
+library(caret)
+confusionMatrix(MM_NB_pred, MM_NB_Test_Lables)
+```
+
+Testing Region of Incident with Naive Bayes
+
+```{r}
+MissingMigrantsNB <- MissingMigrantsARM
+## Create a test and train set from data to test model accuracy
+every4_rows<-seq(2,nrow(MissingMigrantsNB),3)
+MM_NB_Test=MissingMigrantsNB[every4_rows, ]
+MM_NB_Train=MissingMigrantsNB[-every4_rows, ]
+## View the created Test and Train sets
+nrow(MM_NB_Test)
+nrow(MM_NB_Train)
+```
+
+```{r}
+# Store labels seperately and remove from testing data
+MM_NB_Test_Lables <- MM_NB_Test$Region_of_Incident
+MM_NB_Train_Lables <- MM_NB_Train$Region_of_Incident
+MM_NB_Test <- MM_NB_Test[,-1]
+```
+
+
+```{r}
+library(e1071)
+# Train Naive Baynes
+mm_classifier <- naiveBayes(Region_of_Incident ~., data=MM_NB_Train)
+# Predict on testing data
+MM_NB_pred <- predict(mm_classifier, MM_NB_Test)
+```
+
+```{r}
+library(caret)
+confusionMatrix(MM_NB_pred, MM_NB_Test_Lables)
+```
+
+Decision Tree
+
+```{r}
+# Create data frame for Decision Tree removing reported date and cause of death
+MissingMigrantsDT <- as.data.frame(MissingMigrantsDF[-c(2,12)]) 
+```
+
+```{r}
+# Take samples for training and testing
+set.seed(123)
+nrows <- nrow(MissingMigrantsDT)
+sample_size <- round(0.8*nrows)
+training_index <- sample(1:nrows, size = sample_size, replace = FALSE)
+DT_train <- MissingMigrantsDT[training_index, ]
+DT_test <- MissingMigrantsDT[-training_index, ]
+# Remove labels of testing data frame
+DT_Test_Labels <- DT_test$CoD_Category
+DT_test <- DT_test[,-11]
+TestLabels <- DT_Test_Labels
+```
+
+
+```{r}
+# Train the data with a decision tree
+library(rpart)
+library(rpart.plot)
+library(RColorBrewer)
+library(rattle)
+Treefit <- rpart(DT_train$CoD_Category ~., data = DT_train, method = "class")
+#summary(Treefit)
+fancyRpartPlot(Treefit)
+```
+
+```{r}
+# Test decision tree on test data
+predicted = predict(Treefit, DT_test, type = "class")
+(Results <- data.frame(Predicted=predicted, Actual=TestLabels))
+```
+
+```{r}
+# Create confusion matrix
+library(caret)
+library(e1071)
+confusionMatrix(predicted, TestLabels )
+```
+
+
+```{r}
+# Add minisplit to tree model
+Treefit2 <- rpart(DT_train$CoD_Category ~., data = DT_train, method = "class", 
+                  control = rpart.control(minsplit = 3, cp=0))
+#summary(Treefit2)
+fancyRpartPlot(Treefit2)
+```
+
+```{r}
+# Test decision tree on test data
+predicted1 = predict(Treefit2, DT_test, type = "class")
+(Results <- data.frame(Predicted=predicted1, Actual=TestLabels))
+```
+
+```{r}
+confusionMatrix(predicted1, TestLabels )
+```
+
+Random Forest
+
+```{r}
+#Random Forest Analysis on CoD_Category
+library(randomForest)
+MissingMigrantsRF <- randomForest(CoD_Category ~ ., data = DT_train)
+#print(MissingMigrantsRF)
+#getTree(MissingMigrantsRF)
+```
+
+
+```{r}
+# Prediction
+pred_RF <- predict(MissingMigrantsRF, DT_test)
+# Check classification accuracy
+confusionMatrix(pred_RF, TestLabels)
+```
+
+Random Forest Model for Region of Incident
+
+```{r}
+# Take samples for training and testing
+set.seed(123)
+nrows <- nrow(MissingMigrantsDT)
+sample_size <- round(0.8*nrows)
+training_index <- sample(1:nrows, size = sample_size, replace = FALSE)
+DT_train <- MissingMigrantsDT[training_index, ]
+DT_test <- MissingMigrantsDT[-training_index, ]
+# Remove labels of testing data frame
+DT_Test_Labels <- DT_test$Region_of_Incident
+DT_test <- DT_test[,-1]
+TestLabels <- DT_Test_Labels
+```
+
+```{r}
+MissingMigrantsRF <- randomForest(Region_of_Incident ~ ., data = DT_train)
+#print(MissingMigrantsRF)
+#getTree(MissingMigrantsRF)
+```
+
+```{r}
+# Prediction
+pred_RF <- predict(MissingMigrantsRF, DT_test)
+# Check classification accuracy
+confusionMatrix(pred_RF, TestLabels)
+```
+
+```{r}
+g <- MissingMigrantsDF %>% group_by(Region_of_Incident, CoD_Category) %>% summarise(sum(Total_Dead_Missing))
+h <- MissingMigrantsDF %>% group_by(Region_of_Incident, CoD_Category) %>% tally()
+i <- MissingMigrantsDF %>% group_by(Region_of_Incident) %>% summarise(sum(Num_of_Children))
+j <- MissingMigrantsDF %>% group_by(CoD_Category) %>% summarise(sum(Num_of_Children)) 
+k <- MissingMigrantsDF %>% group_by(CoD_Category) %>% summarise(sum(Num_of_Females))
+l <- MissingMigrantsDF %>% group_by(CoD_Category) %>% summarise(sum(Num_of_Males)) 
+m <- MissingMigrantsDF %>% group_by(Reported_Year, Reported_Month) %>% summarise(sum(Total_Dead_Missing))
+m <- as.data.frame(m)
+m <- m[order(m$`sum(Total_Dead_Missing)`, decreasing = TRUE),]
+m
+MissingMigrantsDF %>% group_by(CoD_Category) %>% summarise(sum(Num_of_Children))
+MissingMigrantsDF %>% group_by(CoD_Category) %>% summarise(sum(Num_of_Females))
+MissingMigrantsDF %>% group_by(CoD_Category) %>% summarise(sum(Num_of_Males))
+MissingMigrantsDF %>% summarise(sum(Num_of_Children), sum(Num_of_Females), sum(Num_of_Males))
+```
+
+```{r}
+m <- ggplot(g) + geom_bar(mapping=aes(x=reorder(Region_of_Incident, total), y=total, fill=CoD_Category), stat="identity") + ggtitle("Number of missing or dead migrants between 2014-2019") + ylab("Total Dead or Missing") + xlab("Geography of Incident")
+m <- m + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+m
+```
+
+UN Migrant Stock Data by Origin and Destination
+
+```{r}
+originCountryList <-
+  c(
+    'Total',
+    'Other South',
+    'Other North',
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'American Samoa',
+    'Andorra',
+    'Angola',
+    'Anguilla',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Aruba',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bermuda',
+    'Bhutan',
+    'Bolivia (Plurinational State of)',
+    'Bonaire, Sint Eustatius and Saba',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'British Virgin Islands',
+    'Brunei Darussalam',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cabo Verde',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cayman Islands',
+    'Central African Republic',
+    'Chad',
+    'Channel Islands',
+    'Chile',
+    'China',
+    'China, Hong Kong SAR',
+    'China, Macao SAR',
+    'Colombia',
+    'Comoros',
+    'Congo',
+    'Cook Islands',
+    'Costa Rica',
+    'C?te d\'Ivoire',
+    'Croatia',
+    'Cuba',
+    'Cura?ao',
+    'Cyprus',
+    'Czechia',
+    'Dem. People\'s Republic of Korea',
+    'Democratic Republic of the Congo',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Eswatini',
+    'Ethiopia',
+    'Falkland Islands (Malvinas)',
+    'Faroe Islands',
+    'Fiji',
+    'Finland',
+    'France',
+    'French Guiana',
+    'French Polynesia',
+    'Gabon',
+    'Gambia',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Gibraltar',
+    'Greece',
+    'Greenland',
+    'Grenada',
+    'Guadeloupe',
+    'Guam',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Holy See',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran (Islamic Republic of)',
+    'Iraq',
+    'Ireland',
+    'Isle of Man',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Lao People\'s Democratic Republic',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Martinique',
+    'Mauritania',
+    'Mauritius',
+    'Mayotte',
+    'Mexico',
+    'Micronesia (Fed. States of)',
+    'Monaco',
+    'Mongolia',
+    'Montenegro',
+    'Montserrat',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Caledonia',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Niue',
+    'North Macedonia',
+    'Northern Mariana Islands',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Puerto Rico',
+    'Qatar',
+    'Republic of Korea',
+    'Republic of Moldova',
+    'R?union',
+    'Romania',
+    'Russian Federation',
+    'Rwanda',
+    'Saint Helena',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Pierre and Miquelon',
+    'Saint Vincent and the Grenadines',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Sint Maarten (Dutch part)',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'South Sudan',
+    'Spain',
+    'Sri Lanka',
+    'State of Palestine',
+    'Sudan',
+    'Suriname',
+    'Sweden',
+    'Switzerland',
+    'Syrian Arab Republic',
+    'Tajikistan',
+    'Thailand',
+    'Timor-Leste',
+    'Togo',
+    'Tokelau',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Turks and Caicos Islands',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United Republic of Tanzania',
+    'United States of America',
+    'United States Virgin Islands',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Venezuela (Bolivarian Republic of)',
+    'Viet Nam',
+    'Wallis and Futuna Islands',
+    'Western Sahara',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe'
+  )
+```
+
+```{r}
+# Read table for total population data
+migrantDataTotal <- read_xlsx("UN_MigrantStockByOriginAndDestination_2019.xlsx", sheet="Table 1", range = "A16:IG1997", col_names = TRUE)
+
+# Omit unnecessary fields
+migrantDataTotal<-migrantDataTotal[,-c(2,4,5,6)]
+migrantDataTotal
+
+# Rename 'Year' and 'Country' fields
+colnames(migrantDataTotal)[1] <- "Year"
+colnames(migrantDataTotal)[2] <- "Country"
+
+# Ensure columns are correct data types
+migrantDataTotal$Year <- as.Date(paste(migrantDataTotal$Year, 12, 31, sep = "-"))
+migrantDataTotal[originCountryList] <- sapply(migrantDataTotal[originCountryList],as.integer)
+migrantDataTotal[originCountryList] <- sapply(migrantDataTotal[originCountryList],as.numeric)
+```
+
+
