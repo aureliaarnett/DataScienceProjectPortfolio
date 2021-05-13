@@ -75,7 +75,7 @@ Novels_M_N1 <- apply(Novels_M, 1, function(i) round(i/sum(i),5))\
 Novels_Matrix_Norm <- t(Novels_M_N1)\
 (Novels_Matrix_Norm[1:13,1:10])\
 
-#Screenshots from analysis
+## Screenshots from analysis
 **Load all essays into a corpus**: Hierarchical cluster diagram of a corpus with all essays included\
 ![image](https://user-images.githubusercontent.com/75768214/118076678-863bc700-b367-11eb-8f7a-40339954b94b.png)
 
