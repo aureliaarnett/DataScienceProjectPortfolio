@@ -9,13 +9,16 @@
 * [Contact](#contact)
 
 ## General info
-> This project analyzes immigration trends to understand patterns that exist and recommend solutions to increase human survival rates.
+> This project analyzes immigration trends (origin and destination, time of year, transportation methods) to understand patterns that exist and recommends solutions to increase human survival rates.
 
 ## Technologies used
 * R
 
 ## R methods used
-* F
+* Association Rule Mining
+* Naive Bayes
+* Decision Tree
+* Random Forest
 
 ## Code example
 #Turn character data to factor\
@@ -52,7 +55,22 @@ MissingMigrantsARM$Num_of_Children <-\
 MissingMigrantsARM1 <- subset.data.frame(MissingMigrantsARM, Total_Dead_Missing == "Very_High")\
 
 ## Screenshots from analysis
+**Data discovery to visualize trends**\
+Total Dead and Missing Migrants by Reported Year and Region of Incident\
+![image](https://user-images.githubusercontent.com/75768214/118079598-5263a000-b36d-11eb-8199-d1e83c859478.png)
 
+Total Dead and Missing Migrants by Region of Incident and Category\
+![image](https://user-images.githubusercontent.com/75768214/118079684-77f0a980-b36d-11eb-9673-78c43b994acb.png)
+
+Total Dead and Missing Migrants by Region of Incident and Category\
+![image](https://user-images.githubusercontent.com/75768214/118079720-8343d500-b36d-11eb-8f02-e3fa94a2e44c.png)
+
+Total Dead and Missing Migrants by Reported Year and Gender\
+![image](https://user-images.githubusercontent.com/75768214/118079733-8a6ae300-b36d-11eb-9363-1104afb87b0e.png)
+
+**Data analysis to recommend assistant efforts**\
+Decision Tree output\
+![image](https://user-images.githubusercontent.com/75768214/118079964-02d1a400-b36e-11eb-89c7-b879ba69bef7.png)
 
 ## Contact
 Created by [@AureliaArnett](https://twitter.com/AureliaArnett) --> Let's connect!
