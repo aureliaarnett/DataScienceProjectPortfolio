@@ -1,6 +1,4 @@
 # Aurelia Arnett
-# IST 707 Assignment 4 - All Data
-# ** Majority of code used was provided by Professor Gates in lecture 4 on 10-27-2019
 
 #install.packages("tm")
 library(tm)
