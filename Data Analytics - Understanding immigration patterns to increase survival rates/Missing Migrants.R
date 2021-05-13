@@ -1,4 +1,4 @@
-setwd("C:\\Users\\aua\\Documents\\IST707 Final Project")
+setwd("C:...")
 library(readxl)
 
 MissingMigrants <- read_xlsx("MissingMigrants-Global.xlsx", col_names = TRUE) 
