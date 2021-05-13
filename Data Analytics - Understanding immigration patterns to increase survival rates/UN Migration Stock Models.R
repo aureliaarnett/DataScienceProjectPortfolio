@@ -1,4 +1,3 @@
-# IST707 Final (group) Project
 # Modeling for UN Migrant Stock Dataset
 
 ## Set WD ##
@@ -64,10 +63,10 @@ originCountryList <-
     'Congo',
     'Cook Islands',
     'Costa Rica',
-    'Côte d\'Ivoire',
+    'CÃ´te d\'Ivoire',
     'Croatia',
     'Cuba',
-    'Curaçao',
+    'CuraÃ§ao',
     'Cyprus',
     'Czechia',
     'Dem. People\'s Republic of Korea',
@@ -183,7 +182,7 @@ originCountryList <-
     'Qatar',
     'Republic of Korea',
     'Republic of Moldova',
-    'Réunion',
+    'RÃ©union',
     'Romania',
     'Russian Federation',
     'Rwanda',
