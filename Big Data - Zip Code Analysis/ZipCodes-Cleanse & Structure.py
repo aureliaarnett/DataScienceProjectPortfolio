@@ -1,6 +1,6 @@
 # Aurelia Arnett
 # Objective: Demonstrate ability to develop models for forecasting average median housing value using zip codes.
-# Case: Can we predict which three zip codes provide the best investment opportunity for the Syracuse Real Estate Invvestment Trust
+# Case: Can we predict which three zip codes provide the best investment opportunity for the Syracuse Real Estate Investment Trust
 
 
 ##### PHASE 1: OBTAIN & SCRUB DATA, DATA DISCOVERY, & DATA PRE-PROCESSING #####
