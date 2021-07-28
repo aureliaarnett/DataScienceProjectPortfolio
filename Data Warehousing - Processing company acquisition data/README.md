@@ -11,7 +11,7 @@
 ## General info
 > This project processes data from the aquisition of 1 company into another by consolidating data from 2 data warehouses into 1 and normalizing the way data is collected, stored, and tagged. The data analysis consists of evaluating business processes for both companies and outlining 5 processes that exist for both companies using a high-level dimensional modeling worksheet. A detailed-level dimensional modeling worksheet is then used to deep dive into 1 business process, more specifically to understand product popularity based on customer reviews. Finally, data consolidation is processed through a series of ETL implementations and BI is applied to produce final recommendations.
 >* Company 1 'Fudgemart' is a fictitious online retailer, similar to Amazon.com or Walmart.com. The database consists of customers, products and vendors, and has familiar business processes you would find in any online retailer.
->* Company 2 'Fudgeflix'  is a fictitious online DVD by mail and video on demand service, similar to HULU, Netflix, or Disney+. The database for Fudgeflix is called Fudgeflix_v3 and contains concepts such as accounts, subscriptions and video titles as well as other things associated with an online video streaming service.
+>* Company 2 'Fudgeflix'  is a fictitious online DVD by mail and video on demand service, similar to Hulu, Netflix, or Disney+. The database for Fudgeflix is called Fudgeflix_v3 and contains concepts such as accounts, subscriptions and video titles as well as other things associated with an online video streaming service.
 
 ## Technologies used
 * SQL Server
