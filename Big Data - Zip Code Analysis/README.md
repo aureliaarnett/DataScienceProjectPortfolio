@@ -207,6 +207,7 @@ j = 0\
 A time series analysis for 4 metro areas in Arkansas\
 ![image](https://user-images.githubusercontent.com/75768214/127574066-a0503786-eaae-45cf-b525-50630ff8e080.png)
 \
+\
 Error prediction model of Arkansas zip codes over the next 1 year
 ![image](https://user-images.githubusercontent.com/75768214/127574077-8b2fb3ed-b7bd-4d80-9164-24c25c378e0a.png)
 
