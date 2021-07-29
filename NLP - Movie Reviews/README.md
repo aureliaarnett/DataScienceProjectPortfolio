@@ -25,6 +25,84 @@ Sourced from: https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-r
 * Cross-validation to turn precision, recall, and F1 variables
 
 ## Code example
+**DEFINRE THE FEATURE FUNCTIONS**\
+#1. Bag of words: define a feature function of a corpus to track true/false if keyword is in the corpus\
+#define features (keywords) of a document for a BOW/unigram baseline\
+#each feature is 'contains(keyword)' and is true or false depending\
+#on whether that keyword is in the document\
+def phrase_features(phrase, word_features):\
+    phrase_words = set(phrase)\
+    features = {}\
+    for word in word_features:\
+        features['V_{}'.format(word)] = (word in phrase_words)\
+    return features\
+\
+#2. Bigram Features\
+#define features that include words as before \
+#add the most frequent significant bigrams\
+#this function takes the list of words in a document as an argument and returns a feature dictionary\
+#it depends on the variables word_features and bigram_features\
+def bigram_document_features(document, word_features, bigram_features):\
+    document_words = set(document)\
+    document_bigrams = nltk.bigrams(document)\
+    features = {}\
+    for word in word_features:\
+        features['V_{}'.format(word)] = (word in document_words)\
+    for bigram in bigram_features:\
+        features['B_{}_{}'.format(bigram[0], bigram[1])] = (bigram in document_bigrams)  \  
+    return features\
+\
+#3. POS Features\
+#this function takes a document list of words and returns a feature dictionary\
+#it runs the default pos tagger (the Stanford tagger) on the document\
+#and counts 4 types of pos tags to use as features\
+def POS_features(document, word_features):\
+    document_words = set(document)\
+    tagged_words = nltk.pos_tag(document)\
+    features = {}\
+    for word in word_features:\
+        features['contains({})'.format(word)] = (word in document_words)\
+    numNoun = 0\
+    numVerb = 0\
+    numAdj = 0\
+    numAdverb = 0\
+    for (word, tag) in tagged_words:\
+        if tag.startswith('N'): numNoun += 1\
+        if tag.startswith('V'): numVerb += 1\
+        if tag.startswith('J'): numAdj += 1\
+        if tag.startswith('R'): numAdverb += 1\
+    features['nouns'] = numNoun\
+    features['verbs'] = numVerb\
+    features['adjectives'] = numAdj\
+    features['adverbs'] = numAdverb\
+    return features\
+.\
+.\
+.\
+**APPLY BOW FEATURE FUNCTION**\
+ #1. Bag of words feature sets\
+  print('Bag of words analysis')\
+  phrase_list = [word for (sent,cat) in phrasedocs for word in sent] # create an organized list containing the phrase (sent) and it's sentiment (cat)\
+  BagOfWords = nltk.FreqDist(phrase_list) # create a freq dist from the list\
+  BoW_items = BagOfWords.most_common(1500) # find most common words\
+  BoW_features = [word for (word, freq) in BoW_items] # define features from the most common words\
+  BoWfeaturesets = [(phrase_features(d, BoW_features), c) for (d, c) in phrasedocs] # create a feature set from the features of most common words\
+#print(BoWfeaturesets[10])\
+\
+  #train BoW classifier\
+  #Bag of words: NB Classifer\
+  BoW_train_set, BoW_test_set = BoWfeaturesets[1000:], BoWfeaturesets[:1000] # create train and test data sets (67% by 33%)\
+  BoWclassifier = nltk.NaiveBayesClassifier.train(BoW_train_set) # build the classifier\
+#print('Classifer:', BoWclassifier)\
+  print('Bag of Words classifier accuracy: ', nltk.classify.accuracy(BoWclassifier, BoW_test_set)) # check the accuracy\
+  print(BoWclassifier.show_most_informative_features(30)) # show most informative features\
+\
+  #Cross-validation: Precision, recall, and F1\
+  word_list = [n for (p,n) in phrasedocs]  # n for score, p for phrase\
+  labels = list(set(word_list))    # gets only unique labels\
+  num_folds = 5\
+  cross_validation_PRF(num_folds, BoWfeaturesets, labels) # cross validation accuracy to obtain precision\
+  print()\
 
 
 ## Screenshots from analysis
