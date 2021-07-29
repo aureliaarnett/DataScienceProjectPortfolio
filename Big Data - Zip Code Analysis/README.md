@@ -22,18 +22,18 @@
 
 ## Code example
 **Data Structuring -- Extracting 4 zip codes in AR:**
-# Create a dataset containing just Hot Springs data:
+#Create a dataset containing just Hot Springs data:
 HotSprings = zipcodeData[zipcodeData.Metro == 'Hot Springs']
 #print('Hot Springs Data:')
 #print(HotSprings)
-# Create a transposed dataset to build time a series model:
+#Create a transposed dataset to build time a series model:
 HotSpringsT = HotSprings.drop(['Metro','City', 'State','CountyName'], axis=1)
 HotSpringsT = pd.DataFrame(HotSpringsT).set_index('RegionName').rename_axis('Date', axis=1)
 HotSpringsT = HotSpringsT.transpose()
 #print('Hot Springs Transpose:')
 #print(HotSpringsT)
 #print()
-# Build dataset containing the mean housing value of the Hot Springs area:
+#Build dataset containing the mean housing value of the Hot Springs area:
 HotSprings2 = pd.DataFrame(HotSpringsT)
 rowHS = HotSprings2.loc[:,:]
 HotSprings2["Hot Springs"] = rowHS.mean(axis=1)
@@ -46,7 +46,7 @@ HotSpringsMean = pd.DataFrame(HotSprings2["Hot Springs"])
 .
 .
 .
-# Consolidate 4 zip codes into 1 dataset
+#Consolidate 4 zip codes into 1 dataset
 ARmetro = pd.DataFrame(HotSpringsMean)
 ARmetro['Little Rock'] = LittleRockMean['Little Rock']
 ARmetro['Fayetteville'] = ARFayettevilleMean['Fayetteville']
