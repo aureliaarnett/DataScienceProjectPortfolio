@@ -14,7 +14,7 @@
 >* Company 2 'Fudgeflix'  is a fictitious online DVD by mail and video on demand service, similar to Hulu, Netflix, or Disney+. The database for Fudgeflix is called Fudgeflix_v3 and contains concepts such as accounts, subscriptions and video titles as well as other things associated with an online video streaming service.
 
 ## Technologies used
-* SQL Server
+* SQL Server Management Studios
 * Visual Studios
 * Microsoft Power BI
 
