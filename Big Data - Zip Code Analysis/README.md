@@ -205,9 +205,9 @@ j = 0\
 **Visualizations aligned to zip codes in AR only as example:**\
 **Initial Analysis**\
 A time series analysis for 4 metro areas in Arkansas\
-![image](https://user-images.githubusercontent.com/75768214/127573980-2cfc740c-cb70-4b89-88bb-8eaf0d6f6519.png)
-
+![image](https://user-images.githubusercontent.com/75768214/127574066-a0503786-eaae-45cf-b525-50630ff8e080.png)
 Error prediction model of Arkansas zip codes over the next 1 year
+![image](https://user-images.githubusercontent.com/75768214/127574077-8b2fb3ed-b7bd-4d80-9164-24c25c378e0a.png)
 
 ## Contact
 Created by [@AureliaArnett](https://twitter.com/AureliaArnett) --> Let's connect!
