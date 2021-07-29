@@ -43,6 +43,7 @@ library(e1071)\
 caravan_df_trainNB$Number_of_mobile_home_policies <- factor(caravan_df_trainNB$Number_of_mobile_home_policies, labels = c(0,1))\
 model <- naiveBayes(as.factor(Number_of_mobile_home_policies)~., data=caravan_df_trainNB)\
 model\
+\
 #NB Prediction\
 tst <- caravan_df_testNB[,-86]\
 prediction <- predict(model, newdata = tst)\
