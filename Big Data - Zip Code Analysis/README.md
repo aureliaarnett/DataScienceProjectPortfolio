@@ -21,7 +21,7 @@
 * Timeseries analysis
 
 ## Code example
-**Data Structuring -- Extracting 4 zip codes in AR:**\
+**Data Structuring** -- Extracting 4 zip codes in AR:\
 #Create a dataset containing just Hot Springs data:\
 HotSprings = zipcodeData[zipcodeData.Metro == 'Hot Springs']\
 #print('Hot Springs Data:')\
@@ -56,7 +56,7 @@ print(ARmetro)\
 #pyplot.show()\
 \
 **Prophet modemling & time series analysis for zip codes in AR**\
-**Note: This was repeated for all zip codes in Seattle, WA and then on the dataset of all 15K zip codes**\
+**Note:** This was repeated for all zip codes in Seattle, WA and then on the dataset of all 15K zip codes\
 import warnings\
 import numpy\
 from fbprophet import Prophet\
@@ -202,7 +202,12 @@ j = 0\
 
 
 ## Screenshots
-**Header** 
+**Visualizations aligned to zip codes in AR only as example:**\
+**Initial Analysis**\
+A time series analysis for 4 metro areas in Arkansas\
+![image](https://user-images.githubusercontent.com/75768214/127573980-2cfc740c-cb70-4b89-88bb-8eaf0d6f6519.png)
+
+Error prediction model of Arkansas zip codes over the next 1 year
 
 ## Contact
 Created by [@AureliaArnett](https://twitter.com/AureliaArnett) --> Let's connect!
