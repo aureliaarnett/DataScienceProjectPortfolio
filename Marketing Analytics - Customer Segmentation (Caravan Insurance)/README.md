@@ -27,7 +27,26 @@ Sources from: https://www.kaggle.com/uciml/caravan-insurance-challenge#caravan-i
 * Random Forest decision tree
 
 ## Code example
-
+#NB Pre-Processing\
+caravan_df_trainNB <- caravan_df_train\
+caravan_df_testNB <- caravan_df_test\
+\
+caravan_df_trainNB$Customer_Subtype <- as.factor(caravan_df_trainNB$Customer_Subtype)\
+caravan_df_testNB$Customer_Subtype <- as.factor(caravan_df_testNB$Customer_Subtype)\
+caravan_df_trainNB$Customer_main_type <- as.factor(caravan_df_trainNB$Customer_main_type)\
+caravan_df_testNB$Customer_main_type <- as.factor(caravan_df_testNB$Customer_main_type)\
+\
+#Classification Using Naive Bayes\
+library(e1071)\
+#Can handle both categorical and numeric input,\
+#but output must be categorical\
+caravan_df_trainNB$Number_of_mobile_home_policies <- factor(caravan_df_trainNB$Number_of_mobile_home_policies, labels = c(0,1))\
+model <- naiveBayes(as.factor(Number_of_mobile_home_policies)~., data=caravan_df_trainNB)\
+model\
+#NB Prediction\
+tst <- caravan_df_testNB[,-86]\
+prediction <- predict(model, newdata = tst)\
+table(caravan_df_testNB$Number_of_mobile_home_policies, prediction, dnn=list('actual','predicted'))\
 
 ## Screenshots
 **Naive Bayes** -- where column 1 represents the average A-priori probability and column 2 represents the standard deviation of customers within the variable type (ex: demographic) who are customers and non-customers.
