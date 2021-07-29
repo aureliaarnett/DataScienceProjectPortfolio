@@ -9,7 +9,8 @@
 * [Contact](#contact)
 
 ## General info
-> This project 
+> This project forecasts the mean housing value for 15K+ zip codes in the US over 5 and 10 years to recommend 5 zip codes the Syracude Real Estate Investment Trust should invest in. Through a series of modeling historical data and forecasting the housing value in the future, recommendations will be made based on both the predicted value change with time, whether that increases or decreases, and the potential error of the prediction, based on the range of the prediction.
+> **Note:** The example code & screenshots below test the code on a subset of the 15K+ zip code dataset. The full analysis can be found in the code file 'ZipCodes-Cleanse & Structure.py'.
 
 ## Technologies used
 * Anaconda (python)
