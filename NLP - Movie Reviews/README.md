@@ -13,7 +13,7 @@
 > This project uses text sentiment analysis to determine the connotation of 50K+ moview reviews and 160K phrases by demonstrating an understanding of classification and by developing a series of feature sets for the data and applying a classifier to understand the accuracy. Finally, cross-validation is applied to obtain tighter results through precision, recall, and F1 variables. 
 
 ## Data source
-Sourced from: https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews\
+Sourced from: https://www.kaggle.com/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews \
 The dataset contains 156,060 phrases with a sentiment assigned to each, ranging from 0 to 4. This range represents negative, somewhat negative, neutral, somewhat positive, and positive sentiments, meaning a higher value digit denoting a more positive sentiment.
 
 ## Technologies used
