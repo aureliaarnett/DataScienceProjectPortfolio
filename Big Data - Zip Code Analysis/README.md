@@ -56,7 +56,7 @@ print(ARmetro)\
 #ARmetro.plot().set(title="Time Series for AR Metro Areas", xlabel="Year", ylabel="Mean Housing Value")\
 #pyplot.show()\
 \
-**Prophet modemling & time series analysis for zip codes in AR**\
+**Prophet modeling & time series analysis for zip codes in AR**\
 **Note:** This was repeated for all zip codes in Seattle, WA and then on the dataset of all 15K zip codes\
 import warnings\
 import numpy\
